@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FizzBuzz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #444;
+        }
+        #output {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 15px;
+            line-height: 1.6;
+            text-align: left;
+            white-space: pre-line;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultado do FizzBuzz</h1>
+    <div id="output"></div>
+
+    <script>
+        // Seleciona a área onde os resultados serão exibidos
+        const outputDiv = document.getElementById("output");
+        let result = "";
+
+        // Lógica do programa FizzBuzz
+        for (let i = 1; i <= 100; i++) {
+            if (i % 3 === 0 && i % 5 === 0) {
+                result += "FizzBuzz\n";
+            } else if (i % 3 === 0) {
+                result += "Fizz\n";
+            } else if (i % 5 === 0) {
+                result += "Buzz\n";
+            } else {
+                result += i + "\n";
+            }
+        }
+
+        // Exibe os resultados no HTML
+        outputDiv.innerText = result;
+    </script>
+</body>
+</html>

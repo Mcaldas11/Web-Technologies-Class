@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar o Segundo Maior Número</title>
+</head>
+<body>
+    <h1>Encontre o Segundo Maior Número</h1>
+    <p>Insira os números separados por vírgula (exemplo: 5,12,9,23,7,42):</p>
+    <input type="text" id="numbersInput" placeholder="Digite os números aqui">
+    <button onclick="findSecondLargestNumber()">Encontrar Segundo Maior Número</button>
+    <p id="result"></p>
+
+    <script>
+        function findSecondLargestNumber() {
+            // Obtém o valor do campo de entrada
+            const input = document.getElementById("numbersInput").value;
+            // Converte a string em um array de números
+            const numbers = input.split(",").map(num => Number(num.trim()));
+
+            // Validação de entrada
+            if (numbers.some(isNaN)) {
+                document.getElementById("result").innerText = "Por favor, insira apenas números válidos!";
+                return;
+            }
+
+            // Remover duplicatas e ordenar os números em ordem decrescente
+            const uniqueNumbers = [...new Set(numbers)];
+            uniqueNumbers.sort((a, b) => b - a);
+
+            // Verifica se há pelo menos dois números únicos
+            if (uniqueNumbers.length < 2) {
+                document.getElementById("result").innerText = "Por favor, insira pelo menos dois números diferentes!";
+                return;
+            }
+
+            // O segundo maior número é o segundo elemento do array ordenado
+            const secondLargest = uniqueNumbers[1];
+
+            // Exibe o resultado
+            document.getElementById("result").innerText = "O segundo maior número é: " + secondLargest;
+        }
+    </script>
+</body>
+</html>

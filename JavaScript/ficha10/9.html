@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar o Número Mais Frequente</title>
+</head>
+<body>
+    <h1>Encontre o Número Mais Frequente</h1>
+    <p>Insira os números separados por vírgula (exemplo: 5,12,9,23,7,42,5):</p>
+    <input type="text" id="numbersInput" placeholder="Digite os números aqui">
+    <button onclick="findLessFrequentNumber()">Encontrar Número menos Frequente</button>
+    <p id="result"></p>
+
+    <script>
+        function findLessFrequentNumber() {
+            // Obtém o valor do campo de entrada
+            const input = document.getElementById("numbersInput").value;
+            // Converte a string em um array de números
+            const numbers = input.split(",").map(num => Number(num.trim()));
+
+            // Validação de entrada
+            if (numbers.some(isNaN)) {
+                document.getElementById("result").innerText = "Por favor, insira apenas números válidos!";
+                return;
+            }
+
+            // Conta a frequência de cada número
+            const frequency = {};
+            numbers.forEach(num => {
+                frequency[num] = (frequency[num] || 0) + 1;
+            });
+
+            // Encontra o número com a menor frequência
+            let lessFrequent = null;
+            let minCount = Infinity;
+            for (const num in frequency) {
+                if (frequency[num] < minCount) {
+                    minCount = frequency[num];
+                    lessFrequent = num;
+                }
+            }
+
+            // Exibe o resultado
+            document.getElementById("result").innerText = 
+                `O número menos frequente é: ${lessFrequent} (frequência: ${minCount})`;
+        }
+    </script>
+</body>
+</html>

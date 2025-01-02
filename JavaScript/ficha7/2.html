@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Número</title>
+</head>
+<body>
+    <h1>Verifique se um número é igual ao outro</h1>
+    <button onclick="verificarNumero()">Clique aqui para verificar</button>
+
+    <script>
+        // Solicita ao usuário que insira dois números inteiros
+let numero1 = parseInt(prompt("Digite o primeiro número inteiro:"));
+let numero2 = parseInt(prompt("Digite o segundo número inteiro:"));
+
+// Verifica se os números são iguais ou diferentes
+if (numero1 === numero2) {
+    console.log("Os números são iguais.");
+    alert("Os números são iguais.");
+} else {
+    console.log("Os números são diferentes.");
+    alert("Os números são diferentes.");
+}
+
+    </script>
+</body>
+</html>

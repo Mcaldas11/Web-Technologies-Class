@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, iniƟal-scale=1.0">
+ <Ɵtle>Exercício com Tema Dinâmico</Ɵtle>
+ <!-- Incluindo o CSS do Bootstrap -->
+ <link rel="stylesheet"
+href="hƩps://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body class="bg-light text-dark">
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <div class="container-fluid">
+ <a class="navbar-brand" href="#">Meu Site</a>
+ <buƩon class="navbar-toggler" type="buƩon" data-bs-toggle="collapse" data-bstarget="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle
+navigaƟon">
+<span class="navbar-toggler-icon"></span>
+ </buƩon>
+ <div class="collapse navbar-collapse" id="navbarNav">
+ <ul class="navbar-nav me-auto">
+ <li class="nav-item">
+ <a class="nav-link acƟve" aria-current="page" href="#">Início</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Sobre</a>
+ </li>
+ <li class="nav-item">
+ <a class="nav-link" href="#">Contato</a>
+ </li>
+ </ul>
+ <!-- Botão de troca de tema -->
+ <buƩon id="toggleThemeBtn" class="btn btn-outline-secondary">Modo
+Escuro</buƩon>
+ </div>
+ </div>
+ </nav>
+ <!-- Conteúdo -->
+ <div class="container mt-5">
+ <h1>Bem-vindo ao Meu Site</h1>
+ <p>Experimente alternar entre os temas claro e escuro usando o botão acima.</p>
+ <!-- Formulário de exemplo -->
+ <form>
+    <div class="mb-3">
+    <label for="email" class="form-label">Endereço de email</label>
+    <input type="email" class="form-control" id="email"
+   placeholder="nome@exemplo.com">
+    </div>
+    <div class="mb-3">
+    <label for="senha" class="form-label">Senha</label>
+    <input type="password" class="form-control" id="senha" placeholder="Senha">
+    </div>
+    <buƩon type="submit" class="btn btn-primary">Enviar</buƩon>
+    </form>
+    </div>
+    <!-- JavaScript para troca de tema -->
+    <script>
+    const toggleThemeBtn = document.getElementById('toggleThemeBtn');
+    const body = document.body;
+    toggleThemeBtn.addEventListener('click', () => {
+    // Alterna as classes de tema
+    if (body.classList.contains('bg-light')) {
+    body.classList.remove('bg-light', 'text-dark');
+    body.classList.add('bg-dark', 'text-light');
+    toggleThemeBtn.textContent = 'Modo Claro';
+    } else {
+    body.classList.remove('bg-dark', 'text-light');
+    body.classList.add('bg-light', 'text-dark');
+ toggleThemeBtn.textContent = 'Modo Escuro';
+ }
+ });
+ </script>
+ <!-- Incluindo o JavaScript do Bootstrap -->
+ <script
+src="hƩps://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js">
+</script>
+</body>
+</html>

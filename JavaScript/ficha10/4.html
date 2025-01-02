@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soma de numeros numa lista</title>
+</head>
+<body>
+    <h1>Encontre a Soma dos numeros na lista</h1>
+    <p>Insira os números separados por vírgula (exemplo: 5,12,9,23,7,42):</p>
+    <input type="text" id="numbersInput" placeholder="Digite os números aqui">
+    <button onclick="somaNumber()">Soma dos Números da lista</button>
+    <p id="result"></p>
+
+    <script>
+        function somaNumber() {
+    // Obtém o valor do campo de entrada
+    const input = document.getElementById("numbersInput").value;
+
+    // Converte a string em um array de números
+    const numbers = input.split(",").map(num => Number(num.trim()));
+
+    // Validação de entrada
+    if (numbers.some(isNaN)) {
+        document.getElementById("result").innerText = "Por favor, insira apenas números válidos!";
+        return;
+    }
+
+    // Soma de números da lista
+    const soma = numbers.reduce((total, numero) => total + numero, 0);
+
+    // Exibe o resultado no elemento com id "result"
+    document.getElementById("result").innerText = `A soma dos números é: ${soma}`;
+}
+
+
+    </script>
+    
+</body>
+</html>

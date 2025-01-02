@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menor Numero</title>
+</head>
+<body>
+    <h1>Encontre o Menor Número</h1>
+    <p>Insira os números separados por vírgula (exemplo: 5,12,9,23,7,42):</p>
+    <input type="text" id="numbersInput" placeholder="Digite os números aqui">
+    <button onclick="findLowestNumber()">Encontrar Menor Número</button>
+    <p id="result"></p>
+
+    <script>
+        function findLowestNumber() {
+            // Obtém o valor do campo de entrada
+            const input = document.getElementById("numbersInput").value;
+            // Converte a string em um array de números
+            const numbers = input.split(",").map(num => Number(num.trim()));
+
+            // Validação de entrada
+            if (numbers.some(isNaN)) {
+                document.getElementById("result").innerText = "Por favor, insira apenas números válidos!";
+                return;
+            }
+
+            // Encontra o maior número
+            let lowest = numbers[0];
+            for (let i = 1; i < numbers.length; i++) {
+                if (numbers[i] < lowest) {
+                    lowest = numbers[i];
+                }
+            }
+
+            // Exibe o resultado
+            document.getElementById("result").innerText = "O menor número é: " + lowest;
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maior Número</title>
+</head>
+<body>
+    <h1>Verifique qual é o maior número</h1>
+    <button onclick="verificarMaior()">Clique aqui para verificar</button>
+
+    <script>
+        function verificarMaior() {
+            // Solicita três números ao usuário
+            let num1 = parseInt(prompt("Digite o primeiro número inteiro:"));
+            let num2 = parseInt(prompt("Digite o segundo número inteiro:"));
+            let num3 = parseInt(prompt("Digite o terceiro número inteiro:"));
+
+            // Verifica se as entradas são válidas
+            if (!isNaN(num1) && !isNaN(num2) && !isNaN(num3)) {
+                // Determina o maior número
+                let maior = Math.max(num1, num2, num3);
+
+                alert("O maior número é: " + maior);
+                console.log("O maior número é:", maior);
+            } else {
+                alert("Entrada inválida. Por favor, insira apenas números inteiros.");
+                console.log("Entrada inválida.");
+            }
+        }
+    </script>
+</body>
+</html>

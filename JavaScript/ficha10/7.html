@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encontrar o Segundo Menor Número</title>
+</head>
+<body>
+    <h1>Encontre o Segundo Menor Número</h1>
+    <p>Insira os números separados por vírgula (exemplo: 5,12,9,23,7,42):</p>
+    <input type="text" id="numbersInput" placeholder="Digite os números aqui">
+    <button onclick="findSecondLowestNumber()">Encontrar Segundo Menor Número</button>
+    <p id="result"></p>
+
+    <script>
+        function findSecondLowestNumber() {
+            // Obtém o valor do campo de entrada
+            const input = document.getElementById("numbersInput").value;
+            // Converte a string em um array de números
+            const numbers = input.split(",").map(num => Number(num.trim()));
+
+            // Validação de entrada
+            if (numbers.some(isNaN)) {
+                document.getElementById("result").innerText = "Por favor, insira apenas números válidos!";
+                return;
+            }
+
+            // Remover duplicatas e ordenar os números em ordem decrescente
+            const uniqueNumbers = [...new Set(numbers)];
+            uniqueNumbers.sort((a, b) => a - b);
+
+            // Verifica se há pelo menos dois números únicos
+            if (uniqueNumbers.length < 2) {
+                document.getElementById("result").innerText = "Por favor, insira pelo menos dois números diferentes!";
+                return;
+            }
+
+            // O segundo menor número é o segundo elemento do array ordenado
+            const secondLowest = uniqueNumbers[1];
+
+            // Exibe o resultado
+            document.getElementById("result").innerText = "O segundo menor número é: " + secondLowest;
+        }
+    </script>
+    
+</body>
+</html>
