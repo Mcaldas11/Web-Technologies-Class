@@ -3,10 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Verificar Número Primo</title>
 </head>
 <body>
     <h1>Verifique se o número é primo</h1>
     <button onclick="verificarPrimo()">Clique aqui para verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarPrimo() {
+            let num = prompt("Digite um número inteiro:");
+            
+            // Verificar se a entrada é válida
+            num = parseInt(num);
+            if (isNaN(num)) {
+                document.getElementById("resultado").innerText = "Por favor, insira um número inteiro válido.";
+                return;
+            }
+
+            if (num < 2) {
+                document.getElementById("resultado").innerText = `O número ${num} não é primo.`;
+                return;
+            }
+
+            let isPrime = true;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) {
+                document.getElementById("resultado").innerText = `O número ${num} é primo.`;
+            } else {
+                document.getElementById("resultado").innerText = `O número ${num} não é primo.`;
+            }
+        }
+    </script>
 </body>
 </html>

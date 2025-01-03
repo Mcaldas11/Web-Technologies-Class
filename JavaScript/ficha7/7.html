@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Número Perfeito</title>
+</head>
+<body>
+    <h1>Verifique se um número é perfeito</h1>
+    <button onclick="verificarNumero()">Clique aqui para verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarNumero() {
+            let num = prompt("Digite um número inteiro: ");
+            console.log(num);
+
+            let sum = 0;
+
+            // Garantir que a entrada seja um número válido
+            num = Number(num);
+
+            for (let i = 1; i < num; i++) {
+                if (num % i === 0) {
+                    sum += i;
+                }
+            }
+
+            // Exibir o resultado na página
+            if (sum === num) {
+                document.getElementById("resultado").innerText = "O número é perfeito.";
+            } else {
+                document.getElementById("resultado").innerText = "O número não é perfeito.";
+            }
+        }
+    </script>
+</body>
+</html>

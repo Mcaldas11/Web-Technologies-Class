@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Número de Armstrong</title>
+</head>
+<body>
+    <h1>Verifique se um número é de Armstrong</h1>
+    <button onclick="verificarArmstrong()">Clique aqui para verificar</button>
+    <p id="resultado"></p>
+
+    <script>
+        function verificarArmstrong() {
+            let num = prompt("Digite um número inteiro: ");
+            let originalNum = num;
+            num = Number(num);  // Converte a entrada para número
+            let numStr = num.toString(); // Converte o número para string para contar os dígitos
+            let n = numStr.length;  // Número de dígitos no número
+            let sum = 0;
+
+            // Calcula a soma dos dígitos elevados à potência n
+            for (let i = 0; i < n; i++) {
+                sum += Math.pow(Number(numStr[i]), n);
+            }
+
+            // Verifica se o número é igual à soma dos seus dígitos elevados à potência n
+            if (sum === originalNum) {
+                document.getElementById("resultado").innerText = `O número ${originalNum} é um número de Armstrong.`;
+            } else {
+                document.getElementById("resultado").innerText = `O número ${originalNum} não é um número de Armstrong.`;
+            }
+        }
+    </script>
+</body>
+</html>
